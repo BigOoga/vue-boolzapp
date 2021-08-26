@@ -73,7 +73,7 @@
             <div
               v-for="(contact, index) in contacts"
               :class="{active: isActive(index)}"
-              class="flex-grow-1"
+              class="flex-grow-1 contact"
               @click="setNewIndex(index)"
             >
               <img
@@ -111,13 +111,7 @@
           >
             <div class="offset-7 my-2"></div>
             <div class="sent p-3 rounded-8 col-4 my-2">messaggio</div>
-            <div class="offset-7 my-2"></div>
-            <div class="sent p-3 rounded-8 col-4 my-2">messaggio?</div>
 
-            <div class="received p-3 rounded-8 col-4 my-2">messaggio...</div>
-            <div class="offset-7 my-2"></div>
-            <div class="offset-7 my-2"></div>
-            <div class="sent p-3 rounded-8 col-4 my-2">messaggio</div>
             <div class="offset-7 my-2"></div>
             <div class="sent p-3 rounded-8 col-4 my-2">messaggio?</div>
 

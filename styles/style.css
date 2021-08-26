@@ -68,6 +68,10 @@ header {
   border-radius: 0.8rem !important;
 }
 
+.contact:hover {
+  cursor: pointer;
+}
+
 #message-box {
   position: absolute;
   bottom: 0;
