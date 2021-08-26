@@ -12,9 +12,52 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <script
+      src="https://kit.fontawesome.com/83402c2583.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="./styles/style.css" />
   </head>
   <body>
+    <main
+      id="root"
+      class="container d-flex justify-content-center align-items-center"
+    >
+      <div class="main-window row">
+        <!--# Left Side -->
+        <div class="left-column col-4">
+          <div class="d-flex">
+            <div id="user" class="flex-grow-1 debug-border">
+              <i class="fas fa-user"></i> Nome Utente
+            </div>
+            <div id="user-buttons" class="debug-border">
+              <i class="fas fa-circle-notch p-1"></i>
+              <i class="fas fa-comment-alt p-1"></i>
+              <i class="fas fa-ellipsis-v p-1"></i>
+            </div>
+          </div>
+          <div id="notifications">
+            <p>Ricevi notifiche di nuovi messaggi</p>
+            <p>Attiva notifiche desktop</p>
+          </div>
+          <div id="search">
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1"
+                ><i class="fas fa-search"></i
+              ></span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Cerca o inizia una nuova chat"
+              />
+            </div>
+          </div>
+          <div id="contacts"></div>
+        </div>
+        <!--# Right Side -->
+        <div class="right-column col-8"></div>
+      </div>
+    </main>
     <footer><script src="./js/script.js"></script></footer>
   </body>
 </html>

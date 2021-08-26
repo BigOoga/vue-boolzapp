@@ -8,3 +8,17 @@ body {
   background: linear-gradient(#009688 15%, #dbdbd3 15% 80%);
   height: 100vh;
 }
+
+.main-window {
+  background-color: hotpink;
+  height: 90vh;
+  width: 100%;
+}
+
+.debug-border {
+  border: 2px dashed black;
+}
+
+main {
+  height: 100vh;
+}
