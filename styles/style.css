@@ -38,6 +38,7 @@ main {
 
 .right-column {
   background-image: url(../img/mine.jpg);
+  position: relative;
 }
 
 #notifications {
@@ -65,4 +66,11 @@ header {
 }
 .rounded-8 {
   border-radius: 0.8rem !important;
+}
+
+#message-box {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
