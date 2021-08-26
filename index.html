@@ -62,17 +62,13 @@
             </div>
           </div>
           <div id="contacts">
-            <div class="flex-grow-1 active">
-              <img src="./img/avatar_1.jpg" class="avatar" alt="" />
-              <span class="fs-5">Michele</span>
-            </div>
-            <div class="flex-grow-1">
-              <img src="./img/avatar_1.jpg" class="avatar" alt="" />
-              <span class="fs-5">Michele</span>
-            </div>
-            <div class="flex-grow-1">
-              <img src="./img/avatar_1.jpg" class="avatar" alt="" />
-              <span class="fs-5">Michele</span>
+            <div v-for="contact in contacts" class="flex-grow-1 active">
+              <img
+                :src="'./img/avatar' + contact.avatar + '.jpg'"
+                class="avatar"
+                alt=""
+              />
+              <span class="fs-5">{{contact.name}}</span>
             </div>
           </div>
         </div>
@@ -107,6 +103,9 @@
         </div>
       </div>
     </main>
-    <footer><script src="./js/script.js"></script></footer>
+    <footer>
+      <script src="./js/users.js"></script>
+      <script src="./js/script.js"></script>
+    </footer>
   </body>
 </html>
