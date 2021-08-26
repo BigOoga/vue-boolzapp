@@ -21,7 +21,7 @@
   <body>
     <main
       id="root"
-      class="container d-flex justify-content-center align-items-center"
+      class="container mt-5 d-flex justify-content-center align-items-center"
     >
       <div class="main-window row">
         <!--# Left Side -->
@@ -69,7 +69,7 @@
             </div>
           </div>
           <!-- # Contacts -->
-          <div id="contacts pt-0">
+          <div id="contacts">
             <div
               v-for="(contact, index) in contacts"
               :class="{active: isActive(index)}"
@@ -107,10 +107,15 @@
           </header>
           <div
             id="chat"
-            class="column d-flex justify-content-around flex-wrap py-4"
+            class="col d-flex justify-content-around flex-wrap py-4"
           >
             <div class="offset-7 my-2"></div>
-            <div class="sent p-3 rounded-8 col-4 my-2">messaggio</div>
+            <div class="sent p-3 rounded-8 col-4 my-2">
+              messaggio lunghissimo Lorem ipsum dolor sit amet consectetur,
+              adipisicing elit. Sapiente cumque deleniti aliquid praesentium,
+              quo est nisi neque? Neque, minus. Accusantium adipisci minus fugit
+              vel alias dicta. Necessitatibus distinctio nam corrupti.
+            </div>
 
             <div class="offset-7 my-2"></div>
             <div class="sent p-3 rounded-8 col-4 my-2">messaggio?</div>
