@@ -28,8 +28,12 @@
         <div class="left-column col-4 px-0">
           <header class="d-flex">
             <div id="user" class="flex-grow-1">
-              <img src="./img/avatar_io.jpg" alt="" class="avatar" />
-              <span class="fs-5">Nome Utente</span>
+              <img
+                :src=" './img/avatar' + user.avatar +'.jpg'"
+                alt=""
+                class="avatar p-2"
+              />
+              <span class="fs-5"> {{user.name}}</span>
             </div>
             <div
               id="user-buttons"
@@ -62,10 +66,14 @@
             </div>
           </div>
           <div id="contacts">
-            <div v-for="contact in contacts" class="flex-grow-1 active">
+            <div
+              v-for="(contact, index) in contacts"
+              :class="{active: isActive(index)}"
+              class="flex-grow-1"
+            >
               <img
                 :src="'./img/avatar' + contact.avatar + '.jpg'"
-                class="avatar"
+                class="avatar p-2"
                 alt=""
               />
               <span class="fs-5">{{contact.name}}</span>
@@ -76,7 +84,7 @@
         <div class="right-column col-8 px-0">
           <header class="d-flex">
             <div class="flex-grow-1">
-              <img src="./img/avatar_1.jpg" alt="" class="avatar" />
+              <img src="./img/avatar_1.jpg" alt="" class="avatar p-2" />
               <span class="fs-5">Nome Utente</span>
             </div>
             <div
@@ -100,6 +108,17 @@
             <div class="received p-3 rounded-8 col-4 my-2">messaggio...</div>
             <div class="offset-7 my-2"></div>
           </div>
+          <footer>
+            <div class="input-group mb-3 p-3">
+              <span class="input-group-text py-3"
+                ><i class="far fa-smile fa-2x"></i
+              ></span>
+              <input type="text" class="form-control" />
+              <span class="input-group-text p-3"
+                ><i class="fas fa-microphone fa-2x"></i
+              ></span>
+            </div>
+          </footer>
         </div>
       </div>
     </main>

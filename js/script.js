@@ -7,13 +7,11 @@ const root = new Vue({
   data: {
     user: user,
     contacts: contacts,
+    currentIndex: 0,
   },
   methods: {
-    getAvatarUrl(contact) {},
-  },
-  display() {
-    for (key in this.contacts) {
-      console.log(this.contacts[key]);
-    }
+    isActive(index) {
+      return index === this.currentIndex;
+    },
   },
 });
