@@ -25,22 +25,22 @@
     >
       <div class="main-window row">
         <!--# Left Side -->
-        <div class="left-column col-4">
-          <div class="d-flex">
-            <div id="user" class="flex-grow-1 debug-border">
+        <div class="left-column col-4 px-0">
+          <header class="d-flex ">
+            <div id="user" class="flex-grow-1 ">
               <img src="./img/avatar_io.jpg" alt="" class="avatar"></i> <span class="fs-5">Nome Utente</span>
             </div>
-            <div id="user-buttons" class="debug-border d-flex justify-content-around align-items-center">
+            <div id="user-buttons" class=" d-flex justify-content-around align-items-center">
               <i class="fas fa-circle-notch fa-2x p-1"></i>
               <i class="fas fa-comment-alt fa-2x p-1"></i>
               <i class="fas fa-ellipsis-v fa-2x p-1"></i>
             </div>
-          </div>
+          </header>
           <div id="notifications" class="d-flex align-items-center">
-            <div> <i class="fas fa-bell-slash fa-3x"></i></div>
+            <div class="p-2"> <i class="fas fa-bell-slash fa-3x"></i></div>
             <div class="px-3">
               <h5>Ricevi notifiche di nuovi messaggi</h5>
-              <h5>Attiva notifiche desktop</h5>
+              <h5 class="text-decoration-underline">Attiva notifiche desktop</h5>
             </div>
           </div>
           <div id="search">
@@ -56,19 +56,30 @@
             </div>
           </div>
           <div id="contacts">
-            <div id="user" class="flex-grow-1 debug-border">
+            <div id="user" class="flex-grow-1  active">
               <img src="./img/avatar_1.jpg" class="avatar"></i> <span class="fs-5">Michele</span>
             </div>
-            <div id="user" class="flex-grow-1 debug-border">
+            <div id="user" class="flex-grow-1 ">
               <img src="./img/avatar_1.jpg" class="avatar"></i> <span class="fs-5">Michele</span>
             </div>
-            <div id="user" class="flex-grow-1 debug-border">
+            <div id="user" class="flex-grow-1 ">
               <img src="./img/avatar_1.jpg" class="avatar"></i> <span class="fs-5">Michele</span>
             </div>
           </div>
         </div>
         <!--# Right Side -->
-        <div class="right-column col-8"></div>
+        <div class="right-column col-8 px-0">
+          <header class="d-flex">
+            <div id="user" class="flex-grow-1 ">
+              <img src="./img/avatar_1.jpg" alt="" class="avatar"></i> <span class="fs-5">Nome Utente</span>
+            </div>
+            <div id="user-buttons" class=" d-flex justify-content-around align-items-center">
+              <i class="fas fa-search fa-2x p-1"></i>
+              <i class="fas fa-paperclip fa-2x p-1"></i>
+              <i class="fas fa-ellipsis-v fa-2x p-1"></i>
+            </div>
+          </header>
+        </div>
       </div>
     </main>
     <footer><script src="./js/script.js"></script></footer>
