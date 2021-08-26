@@ -13,5 +13,8 @@ const root = new Vue({
     isActive(index) {
       return index === this.currentIndex;
     },
+    setNewIndex(index) {
+      this.currentIndex = index;
+    },
   },
 });

@@ -70,6 +70,7 @@
               v-for="(contact, index) in contacts"
               :class="{active: isActive(index)}"
               class="flex-grow-1"
+              @click="setNewIndex(index)"
             >
               <img
                 :src="'./img/avatar' + contact.avatar + '.jpg'"
@@ -84,8 +85,12 @@
         <div class="right-column col-8 px-0">
           <header class="d-flex">
             <div class="flex-grow-1">
-              <img src="./img/avatar_1.jpg" alt="" class="avatar p-2" />
-              <span class="fs-5">Nome Utente</span>
+              <img
+                :src="'./img/avatar'+ contacts[currentIndex].avatar +'.jpg'"
+                alt=""
+                class="avatar p-2"
+              />
+              <span class="fs-5">{{contacts[currentIndex].name}}</span>
             </div>
             <div
               id="chat-buttons"
