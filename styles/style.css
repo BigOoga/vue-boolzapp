@@ -22,3 +22,9 @@ body {
 main {
   height: 100vh;
 }
+
+.avatar {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+}
