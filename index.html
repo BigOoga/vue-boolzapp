@@ -39,33 +39,37 @@
               id="user-buttons"
               class="d-flex justify-content-around align-items-center"
             >
-              <i class="fas fa-circle-notch fa-2x p-1"></i>
-              <i class="fas fa-comment-alt fa-2x p-1"></i>
-              <i class="fas fa-ellipsis-v fa-2x p-1"></i>
+              <i class="fas fa-circle-notch fa-2x p-1 text-muted"></i>
+              <i class="fas fa-comment-alt fa-2x p-1 text-muted"></i>
+              <i class="fas fa-ellipsis-v fa-2x p-1 text-muted"></i>
             </div>
           </header>
+          <!-- # Notifications -->
           <div id="notifications" class="d-flex align-items-center">
             <div class="p-2"><i class="fas fa-bell-slash fa-3x"></i></div>
             <div class="px-3">
-              <h5>Ricevi notifiche di nuovi messaggi</h5>
-              <h5 class="text-decoration-underline">
+              <p class="fs-5 pt-2">Ricevi notifiche di nuovi messaggi</p>
+              <p class="fs-6 text-muted text-decoration-underline">
                 Attiva notifiche desktop
-              </h5>
+              </p>
             </div>
           </div>
+          <!-- # Search -->
           <div id="search">
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"
+            <div class="input-group p-2">
+              <span class="input-group-text text-muted" id="basic-addon1"
                 ><i class="fas fa-search"></i
               ></span>
               <input
                 type="text"
                 class="form-control"
+                v-model="searchKey"
                 placeholder="Cerca o inizia una nuova chat"
               />
             </div>
           </div>
-          <div id="contacts">
+          <!-- # Contacts -->
+          <div id="contacts pt-0">
             <div
               v-for="(contact, index) in contacts"
               :class="{active: isActive(index)}"
@@ -94,11 +98,11 @@
             </div>
             <div
               id="chat-buttons"
-              class="d-flex justify-content-around align-items-center"
+              class="d-flex justify-content-around align-items-center px-3"
             >
-              <i class="fas fa-search fa-2x p-1"></i>
-              <i class="fas fa-paperclip fa-2x p-1"></i>
-              <i class="fas fa-ellipsis-v fa-2x p-1"></i>
+              <i class="fas fa-search fa-2x p-1 text-muted"></i>
+              <i class="fas fa-paperclip fa-2x p-1 text-muted"></i>
+              <i class="fas fa-ellipsis-v fa-2x p-1 text-muted"></i>
             </div>
           </header>
           <div
@@ -116,11 +120,11 @@
           <footer>
             <div class="input-group mb-3 p-3">
               <span class="input-group-text py-3"
-                ><i class="far fa-smile fa-2x"></i
+                ><i class="far fa-smile fa-2x text-muted"></i
               ></span>
               <input type="text" class="form-control" />
               <span class="input-group-text p-3"
-                ><i class="fas fa-microphone fa-2x"></i
+                ><i class="fas fa-microphone fa-2x text-muted"></i
               ></span>
             </div>
           </footer>

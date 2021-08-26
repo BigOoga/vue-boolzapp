@@ -7,6 +7,7 @@ const root = new Vue({
   data: {
     user: user,
     contacts: contacts,
+    searchKey: "",
     currentIndex: 0,
   },
   methods: {
