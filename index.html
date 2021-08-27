@@ -113,9 +113,13 @@
           </header>
           <div id="chat" class="row d-flex mx-0 py-4">
             <div class="col-12">
-              <div class="row message-container sent">
+              <div
+                v-for="message in contacts[currentIndex].messages"
+                class="row message-container"
+                :class="message.status"
+              >
                 <div class="message p-3 rounded-8 col-4 mx-4 my-2">
-                  Hello world!
+                  {{message.message}}
                 </div>
               </div>
             </div>
