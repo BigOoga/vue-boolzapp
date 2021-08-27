@@ -87,8 +87,8 @@
         </div>
         <!--# Right Side -->
         <div class="right-column col-8 px-0">
-          <header class="d-flex">
-            <div class="flex-grow-1">
+          <header class="row mx-0">
+            <div class="flex-grow-1 col-9 px-0">
               <img
                 :src="'./img/avatar'+ contacts[currentIndex].avatar +'.jpg'"
                 alt=""
@@ -98,7 +98,13 @@
             </div>
             <div
               id="chat-buttons"
-              class="d-flex justify-content-around align-items-center px-3"
+              class="
+                col-3
+                d-flex
+                justify-content-around
+                align-items-center
+                px-3
+              "
             >
               <i class="fas fa-search fa-2x p-1 text-muted"></i>
               <i class="fas fa-paperclip fa-2x p-1 text-muted"></i>
