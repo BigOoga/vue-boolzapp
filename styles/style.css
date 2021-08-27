@@ -97,6 +97,10 @@ header {
   position: relative;
 }
 
+.fs-8 {
+  font-size: 0.8rem;
+}
+
 #message-box {
   height: 65px;
   position: absolute;

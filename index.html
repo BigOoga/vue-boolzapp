@@ -88,13 +88,16 @@
         <!--# Right Side -->
         <div class="right-column col-8 px-0">
           <header class="row mx-0">
-            <div class="flex-grow-1 col-9 px-0">
+            <div class="flex-grow-1 col-1 px-0">
               <img
                 :src="'./img/avatar'+ contacts[currentIndex].avatar +'.jpg'"
                 alt=""
                 class="avatar p-2"
               />
-              <span class="fs-5">{{contacts[currentIndex].name}}</span>
+            </div>
+            <div class="col-8 pt-2 flex-grow-1">
+              <div class="text">{{contacts[currentIndex].name}}</div>
+              <div class="date fw-light text-muted">Ultimo accesso oggi</div>
             </div>
             <div
               id="chat-buttons"
@@ -119,7 +122,10 @@
                 :class="message.status"
               >
                 <div class="message p-3 rounded-8 col-4 mx-4 my-2">
-                  {{message.message}}
+                  <div class="text">{{message.message}}</div>
+                  <div class="date fs-8 fw-light text-muted text-end">
+                    {{message.date}}
+                  </div>
                 </div>
               </div>
             </div>
