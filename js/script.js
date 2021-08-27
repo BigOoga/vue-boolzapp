@@ -5,8 +5,8 @@ console.log("vue test", Vue);
 const root = new Vue({
   el: "#root",
   data: {
-    user: user,
-    contacts: contacts,
+    user: data.user,
+    contacts: data.contacts,
     searchKey: "",
     currentIndex: 0,
   },

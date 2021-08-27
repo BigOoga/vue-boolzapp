@@ -73,7 +73,7 @@
             <div
               v-for="(contact, index) in contacts"
               :class="{active: isActive(index)}"
-              class="flex-grow-1 contact"
+              class="contact"
               @click="setNewIndex(index)"
             >
               <img
@@ -142,7 +142,7 @@
       </div>
     </main>
     <footer>
-      <script src="./js/users.js"></script>
+      <script src="./js/data.js"></script>
       <script src="./js/script.js"></script>
     </footer>
   </body>

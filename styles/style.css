@@ -57,6 +57,7 @@ header {
 
 .sent {
   background-color: #d5f9ba;
+  justify-content: flex-end;
 }
 
 .received {
@@ -72,6 +73,7 @@ header {
 
 .contact:hover {
   cursor: pointer;
+  background-color: #eaeaea;
 }
 
 #chat {
