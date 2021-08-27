@@ -47,11 +47,19 @@ const root = new Vue({
       // Simula una risposta con 2 secondi di ritardo
       let currentMsg = {
         date: "",
-        message: "Beep boop",
+        message: this.getRandomMsg(),
         status: "received",
       };
 
       setTimeout(this.receiveMsg, 2000, currentMsg, this.currentIndex);
+    },
+    getRandomMsg() {
+      let text = "";
+      //replies = ["Ok...", "No.", "Maybe", "Yes!", "Yes, but..."];
+      replies = ["Ok...", "No.", "Forse", "Sì!", "Sì, ma..."];
+      let rndIndex = Math.floor(Math.random() * (replies.length - 1) + 1);
+      text = replies[rndIndex];
+      return text;
     },
   },
 });
