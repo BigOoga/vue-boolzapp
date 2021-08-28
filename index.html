@@ -67,6 +67,7 @@
                   ><i class="fas fa-search"></i
                 ></span>
                 <input
+                @keyup="filterContacts"
                   type="text"
                   class="form-control"
                   v-model="searchKey"
@@ -75,10 +76,12 @@
               </div>
             </div>
             <!-- # Contacts -->
+            <!-- :class="{active: isActive(index)}" -->
             <div id="contacts">
               <div
                 v-for="(contact, index) in contacts"
-                :class="{active: isActive(index)}"
+                
+                :class="[contact.visible ? 'visible' : 'd-none']"
                 class="contact"
                 @click="setNewIndex(index)"
               >

@@ -72,5 +72,14 @@ const root = new Vue({
         this.theme = "light";
       }
     },
+    filterContacts() {
+      this.contacts.forEach((element) => {
+        if (element.name.toLowerCase().includes(this.searchKey.toLowerCase())) {
+          element.visible = true;
+        } else {
+          element.visible = false;
+        }
+      });
+    },
   },
 });
