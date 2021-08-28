@@ -20,134 +20,142 @@
     <link rel="stylesheet" href="./styles/style.css" />
   </head>
   <body>
-    <main
-      id="root"
-      class="container mt-5 d-flex justify-content-center align-items-center"
-    >
-      <div class="main-window row">
-        <!--# Left Side -->
-        <div class="left-column col-4 px-0">
-          <header class="d-flex">
-            <div id="user" class="flex-grow-1">
-              <img
-                :src=" './img/avatar' + user.avatar +'.jpg'"
-                alt=""
-                class="avatar p-2"
-              />
-              <span class="fs-5"> {{user.name}}</span>
-            </div>
-            <div
-              id="user-buttons"
-              class="d-flex justify-content-around align-items-center"
-            >
-              <i class="fas fa-circle-notch fa-2x p-1 text-muted"></i>
-              <i class="fas fa-comment-alt fa-2x p-1 text-muted"></i>
-              <i class="fas fa-ellipsis-v fa-2x p-1 text-muted"></i>
-            </div>
-          </header>
-          <!-- # Notifications -->
-          <div id="notifications" class="d-flex align-items-center">
-            <div class="p-2"><i class="fas fa-bell-slash fa-3x"></i></div>
-            <div class="px-3">
-              <p class="fs-5 pt-2">Ricevi notifiche di nuovi messaggi</p>
-              <p class="fs-6 text-muted text-decoration-underline">
-                Attiva notifiche desktop
-              </p>
-            </div>
-          </div>
-          <!-- # Search -->
-          <div id="search">
-            <div class="input-group p-2">
-              <span class="input-group-text text-muted" id="basic-addon1"
-                ><i class="fas fa-search"></i
-              ></span>
-              <input
-                type="text"
-                class="form-control"
-                v-model="searchKey"
-                placeholder="Cerca o inizia una nuova chat"
-              />
-            </div>
-          </div>
-          <!-- # Contacts -->
-          <div id="contacts">
-            <div
-              v-for="(contact, index) in contacts"
-              :class="{active: isActive(index)}"
-              class="contact"
-              @click="setNewIndex(index)"
-            >
-              <img
-                :src="'./img/avatar' + contact.avatar + '.jpg'"
-                class="avatar p-2"
-                alt=""
-              />
-              <span class="fs-5">{{contact.name}}</span>
-            </div>
-          </div>
-        </div>
-        <!--# Right Side -->
-        <div class="right-column col-8 px-0">
-          <header class="row mx-0">
-            <div class="flex-grow-1 col-1 px-0">
-              <img
-                :src="'./img/avatar'+ contacts[currentIndex].avatar +'.jpg'"
-                alt=""
-                class="avatar p-2"
-              />
-            </div>
-            <div class="col-8 pt-2 flex-grow-1">
-              <div class="text">{{contacts[currentIndex].name}}</div>
-              <div class="date fw-light text-muted">Ultimo accesso oggi</div>
-            </div>
-            <div
-              id="chat-buttons"
-              class="
-                col-3
-                d-flex
-                justify-content-around
-                align-items-center
-                px-3
-              "
-            >
-              <i class="fas fa-search fa-2x p-1 text-muted"></i>
-              <i class="fas fa-paperclip fa-2x p-1 text-muted"></i>
-              <i class="fas fa-ellipsis-v fa-2x p-1 text-muted"></i>
-            </div>
-          </header>
-          <div id="chat" class="row d-flex mx-0 py-4">
-            <div class="col-12">
+    <main id="root" :class="getTheme()">
+      <div
+        class="container mt-5 d-flex justify-content-center align-items-center"
+      >
+        <div class="main-window row" :class="getTheme()">
+          <!--# Left Side -->
+          <div class="left-column col-4 px-0" :class="getTheme()">
+            <header class="d-flex" :class="getTheme()">
+              <div id="user" class="flex-grow-1">
+                <img
+                  :src=" './img/avatar' + user.avatar +'.jpg'"
+                  alt=""
+                  class="avatar p-2"
+                />
+                <span class="fs-5"> {{user.name}}</span>
+              </div>
               <div
-                v-for="message in contacts[currentIndex].messages"
-                class="row message-container"
-                :class="message.status"
+                id="user-buttons"
+                class="d-flex justify-content-around align-items-center"
               >
-                <div class="message p-3 rounded-8 col-4 mx-4 my-2">
-                  <div class="text">{{message.message}}</div>
-                  <div class="date fs-8 fw-light text-muted text-end">
-                    {{message.date}}
+                <i class="fas fa-circle-notch fa-2x p-1 text-muted"></i>
+                <i class="fas fa-comment-alt fa-2x p-1 text-muted"></i>
+                <i class="fas fa-ellipsis-v fa-2x p-1 text-muted" ></i>
+                <i class="far fa-lightbulb fa-2x p-1 text-muted" @click="toggleTheme"></i>
+              </div>
+            </header>
+            <!-- # Notifications -->
+            <div
+              id="notifications"
+              class="d-flex align-items-center"
+              :class="getTheme()"
+            >
+              <div class="p-2"><i class="fas fa-bell-slash fa-3x" :class="getTheme()" ></i></div>
+              <div class="px-3">
+                <p class="fs-5 pt-2">Ricevi notifiche di nuovi messaggi</p>
+                <p class="fs-6 text-muted text-decoration-underline"></p>
+                  Attiva notifiche desktop
+                </p>
+              </div>
+            </div>
+            <!-- # Search -->
+            <div id="search">
+              <div class="input-group p-2">
+                <span class="input-group-text text-muted" id="basic-addon1"
+                  ><i class="fas fa-search"></i
+                ></span>
+                <input
+                  type="text"
+                  class="form-control"
+                  v-model="searchKey"
+                  placeholder="Cerca o inizia una nuova chat"
+                />
+              </div>
+            </div>
+            <!-- # Contacts -->
+            <div id="contacts">
+              <div
+                v-for="(contact, index) in contacts"
+                :class="{active: isActive(index)}"
+                class="contact"
+                @click="setNewIndex(index)"
+              >
+                <img
+                  :src="'./img/avatar' + contact.avatar + '.jpg'"
+                  class="avatar p-2"
+                  alt=""
+                />
+                <span class="fs-5">{{contact.name}}</span>
+              </div>
+            </div>
+          </div>
+          <!--# Right Side -->
+          <div class="right-column col-8 px-0">
+            <header class="row mx-0" :class="getTheme()">
+              <div class="flex-grow-1 col-1 px-0">
+                <img
+                  :src="'./img/avatar'+ contacts[currentIndex].avatar +'.jpg'"
+                  alt=""
+                  class="avatar p-2"
+                />
+              </div>
+              <div class="col-8 pt-2 flex-grow-1">
+                <div class="text">{{contacts[currentIndex].name}}</div>
+                <div class="date fw-light text-muted">Ultimo accesso oggi</div>
+              </div>
+              <div
+                id="chat-buttons"
+                class="
+                  col-3
+                  d-flex
+                  justify-content-around
+                  align-items-center
+                  px-3
+                "
+              >
+                <i class="fas fa-search fa-2x p-1 text-muted"></i>
+                <i class="fas fa-paperclip fa-2x p-1 text-muted"></i>
+                <i class="fas fa-ellipsis-v fa-2x p-1 text-muted"></i>
+              </div>
+            </header>
+            <div id="chat" class="row d-flex mx-0 py-4" :class="getTheme()">
+              <div class="col-12">
+                <div
+                  v-for="message in contacts[currentIndex].messages"
+                  class="row message-container"
+                  :class="message.status"
+                >
+                  <div
+                    class="message p-3 rounded-8 col-4 mx-4 my-2"
+                    :class="getTheme()"
+                  >
+                    <div class="text">{{message.message}}</div>
+                    <div class="date fs-8 fw-light text-muted text-end">
+                      {{message.date}}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+            <footer id="message-box">
+              <div class="input-group">
+                <span class="input-group-text py-3"
+                  ><i class="far fa-smile fa-2x text-muted"></i
+                ></span>
+                <input
+                  @keyup.enter="sendMsg()"
+                  v-model="messageBoxContent"
+                  type="text"
+                  class="form-control"
+                />
+                <span class="input-group-text p-3"
+                  ><i class="fas fa-microphone fa-2x text-muted"></i
+                ></span>
+              </div>
+            </footer>
           </div>
-
-          <footer id="message-box">
-            <div class="input-group">
-              <span class="input-group-text py-3"
-                ><i class="far fa-smile fa-2x text-muted"></i
-              ></span>
-              <input
-                @keyup.enter="sendMsg()"
-                v-model="messageBoxContent"
-                type="text"
-                class="form-control"
-              />
-              <span class="input-group-text p-3"
-                ><i class="fas fa-microphone fa-2x text-muted"></i
-              ></span>
-            </div>
-          </footer>
         </div>
       </div>
     </main>

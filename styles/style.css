@@ -4,16 +4,29 @@
   padding: 0;
 }
 
-body {
-  background: linear-gradient(#009688 15%, #dbdbd3 15% 80%);
+main {
   height: 100vh;
   overflow-y: hidden;
 }
 
+main.light {
+  background: linear-gradient(#009688 15%, #dbdbd3 15% 80%);
+}
+
+main.dark {
+  background: linear-gradient(#003f39 15%, #342f41 15% 80%);
+}
+
 .main-window {
-  background-color: white;
   height: 90vh;
   width: 100%;
+}
+.main-window.light {
+  background-color: white;
+}
+.main-window.dark {
+  background-color: #131c21;
+  color: white;
 }
 
 .debug-border {
@@ -33,42 +46,78 @@ body {
   padding: 5px;
 }
 
+.fas.fa-bell-slash.dark {
+  background-color: white;
+  border-radius: 50%;
+  color: #085373;
+  padding: 5px;
+}
+
 .right-column {
   background-image: url(../img/mine.jpg);
 }
 
+#chat.dark {
+  background-color: rgba(13, 20, 24, 0.5);
+}
+
 #notifications {
-  background-color: #8edafc;
   height: 125px;
 }
 
+#notifications.light {
+  background-color: #8edafc;
+}
+#notifications.dark {
+  background-color: #085373;
+}
+
+#user-buttons i:hover {
+  cursor: pointer;
+}
+
 header {
-  background-color: #eaeaea;
   height: 75px;
+}
+
+header.light {
+  background-color: #eaeaea;
+}
+header.dark {
+  background-color: #2a2f32;
 }
 
 #search {
   height: 55px;
 }
 
-.left-column .active {
+.left-column.light .active {
   background-color: #eaeaea;
+}
+.left-column.dark .active {
+  background-color: #323739;
 }
 
 .message-container.sent {
   justify-content: flex-end;
 }
 
-.message-container.sent .message {
+.message-container.sent .message.light {
   background-color: #d5f9ba;
+}
+.message-container.sent .message.dark {
+  background-color: #056162;
 }
 
 .message-container.received {
   justify-content: flex-start;
 }
 
-.message-container.received .message {
+.message-container.received .message.message.light {
   background-color: #ffffff;
+}
+.message-container.received .message.message.dark {
+  background-color: #262d31;
 }
 
 .rounded-5 {
@@ -80,7 +129,13 @@ header {
 
 .contact:hover {
   cursor: pointer;
+}
+
+.left-column.light .contact:hover {
   background-color: #eaeaea;
+}
+.left-column.dark .contact:hover {
+  background-color: #323739;
 }
 
 #chat {

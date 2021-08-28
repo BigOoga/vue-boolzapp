@@ -10,6 +10,7 @@ const root = new Vue({
     searchKey: "",
     currentIndex: 0,
     messageBoxContent: "",
+    theme: "dark",
   },
   methods: {
     isActive(index) {
@@ -60,6 +61,16 @@ const root = new Vue({
       let rndIndex = Math.floor(Math.random() * (replies.length - 1) + 1);
       text = replies[rndIndex];
       return text;
+    },
+    getTheme() {
+      return this.theme;
+    },
+    toggleTheme() {
+      if (this.theme === "light") {
+        this.theme = "dark";
+      } else {
+        this.theme = "light";
+      }
     },
   },
 });
