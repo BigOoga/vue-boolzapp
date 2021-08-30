@@ -10,9 +10,16 @@ const root = new Vue({
     searchKey: "",
     currentIndex: 0,
     messageBoxContent: "",
+    showSearchMsg: false,
+    msgSearchKey: "",
     theme: "dark",
   },
   methods: {
+    toggleMsgSearch() {
+      this.showSearchMsg = !this.showSearchMsg;
+
+      return;
+    },
     isActive(index) {
       return index === this.currentIndex;
     },

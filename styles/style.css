@@ -195,3 +195,7 @@ header.dark {
   color: grey;
   transform: scale(150%);
 }
+
+#chat-buttons .fas:hover {
+  cursor: pointer;
+}

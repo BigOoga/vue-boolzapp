@@ -40,7 +40,7 @@
                   alt=""
                   class="avatar p-2"
                 />
-                <span class="fs-5"> {{user.name}}</span>
+                <span class="fs-6"> {{user.name}}</span>
               </div>
               <div
                 id="user-buttons"
@@ -122,32 +122,46 @@
           <!--# Right Side -->
           <div class="right-column col-8 px-0">
             <header class="row mx-0" :class="getTheme()">
-              <div class="flex-grow-1 col-1 px-0">
+              <div class="col-1 px-0">
                 <img
                   :src="'./img/avatar'+ contacts[currentIndex].avatar +'.jpg'"
                   alt=""
                   class="avatar p-2"
                 />
               </div>
-              <div class="col-8 pt-2 flex-grow-1 ps-4">
+              <div class="col-6 me-auto pt-2 ps-4">
                 <div class="text">{{contacts[currentIndex].name}}</div>
                 <div class="date fw-light text-muted">
                   Ultimo accesso: {{getLastReceivedMsg(currentIndex)}}
                 </div>
               </div>
+              <div class="col d-flex align-items-center">
+                <input
+                  type="text"
+                  v-model="msgSearchKey"
+                  class="form-control"
+                  :class="showSearchMsg ? 'visible' : 'd-none'"
+                  id="basic-url"
+                  aria-describedby="basic-addon3"
+                />
+              </div>
               <div
                 id="chat-buttons"
                 class="
-                  col-3
+                  mx-0
+                  col-2
                   d-flex
-                  justify-content-around
+                  justify-content-between
                   align-items-center
                   px-3
                 "
               >
-                <i class="fas fa-search fa-2x p-1 text-muted"></i>
-                <i class="fas fa-paperclip fa-2x p-1 text-muted"></i>
-                <i class="fas fa-ellipsis-v fa-2x p-1 text-muted"></i>
+                <i
+                  class="fas fa-search fa-lg p-1 text-muted"
+                  @click="toggleMsgSearch"
+                ></i>
+                <i class="fas fa-paperclip fa-lg p-1 text-muted"></i>
+                <i class="fas fa-ellipsis-v fa-lg p-1 text-muted"></i>
               </div>
             </header>
             <div id="chat" class="row d-flex mx-0 py-4" :class="getTheme()">
