@@ -10,6 +10,7 @@ const root = new Vue({
     searchKey: "",
     currentIndex: 0,
     messageBoxContent: "",
+    showIntro: true,
     showSearchMsg: false,
     msgSearchKey: "",
     theme: "dark",
@@ -24,6 +25,7 @@ const root = new Vue({
       return index === this.currentIndex;
     },
     setNewIndex(index) {
+      this.showIntro = false;
       this.currentIndex = index;
     },
     sendMsg() {
@@ -79,16 +81,7 @@ const root = new Vue({
         this.theme = "light";
       }
     },
-    getRandomDate() {
-      const rndDay = Math.floor(Math.random() * (max - min) + min);
-      const rndMonth = Math.floor(Math.random() * (max - min) + min);
-      const rndHour = Math.floor(Math.random() * (max - min) + min);
-      const rndMinute = Math.floor(Math.random() * (max - min) + min);
 
-      let timestamp = dayjs().format("DD/MM/YYYY HH:mm");
-      timestamp.day(rndDay);
-      return timestamp;
-    },
     filterContacts() {
       this.contacts.forEach((element) => {
         if (element.name.toLowerCase().includes(this.searchKey.toLowerCase())) {
@@ -102,6 +95,7 @@ const root = new Vue({
       this.contacts[this.currentIndex].messages.splice(index, 1);
     },
     getLastReceivedMsg(index) {
+      // Breaks on deleteMsg() calls
       const receivedMessages = this.contacts[index].messages.filter(
         (message) => message.status === "received"
       );

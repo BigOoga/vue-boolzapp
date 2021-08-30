@@ -199,3 +199,16 @@ header.dark {
 #chat-buttons .fas:hover {
   cursor: pointer;
 }
+
+#first-login {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #222f37;
+  background-image: url(../img/boolzapp.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
