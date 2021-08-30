@@ -20,6 +20,9 @@ const root = new Vue({
       this.currentIndex = index;
     },
     sendMsg() {
+      // return if empty
+      if (!this.currentMsg) return;
+
       let currentMsg = {
         date: this.getTimestamp(),
         message: this.messageBoxContent,
@@ -72,6 +75,16 @@ const root = new Vue({
         this.theme = "light";
       }
     },
+    getRandomDate() {
+      const rndDay = Math.floor(Math.random() * (max - min) + min);
+      const rndMonth = Math.floor(Math.random() * (max - min) + min);
+      const rndHour = Math.floor(Math.random() * (max - min) + min);
+      const rndMinute = Math.floor(Math.random() * (max - min) + min);
+
+      let timestamp = dayjs().format("DD/MM/YYYY HH:mm");
+      timestamp.day(rndDay);
+      return timestamp;
+    },
     filterContacts() {
       this.contacts.forEach((element) => {
         if (element.name.toLowerCase().includes(this.searchKey.toLowerCase())) {
@@ -80,6 +93,9 @@ const root = new Vue({
           element.visible = false;
         }
       });
+    },
+    deleteMsg(index) {
+      this.contacts[this.currentIndex].messages.splice(index, 1);
     },
   },
 });

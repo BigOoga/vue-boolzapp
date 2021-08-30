@@ -58,7 +58,7 @@ main.dark {
 }
 
 #chat.dark {
-  background-color: rgba(13, 20, 24, 0.5);
+  background-color: rgba(13, 20, 24, 0.7);
 }
 
 #notifications {
@@ -162,4 +162,22 @@ header.dark {
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+.message {
+  position: relative;
+}
+
+.message .dropdown {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+
+.message-button {
+  color: white;
+}
+.message-button:hover {
+  color: grey;
+  transform: scale(150%);
 }
