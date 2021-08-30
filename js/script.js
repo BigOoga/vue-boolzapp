@@ -16,25 +16,48 @@ const root = new Vue({
     theme: "dark",
   },
   methods: {
+    getLastMsgIndex() {
+      console.log(
+        `Returning last index = ${
+          this.contacts[this.currentIndex].messages.length - 1
+        }`
+      );
+      return this.contacts[this.currentIndex].messages.length - 1;
+    },
+    scrollToMsg(index) {
+      const target = "target_" + index;
+      console.log(`Looking for id = ${target}`);
+      const el = document.getElementById(target);
+      el.scrollIntoView(true);
+    },
     isActive(index) {
       return index === this.currentIndex;
     },
     setNewIndex(index) {
-      this.showIntro = false;
+      this.showIntro = false; // Gets rid of the intro screen
+
       this.currentIndex = index;
     },
     sendMsg() {
-      let currentMsg = {
-        date: this.getTimestamp(),
-        message: this.messageBoxContent,
-        status: "sent",
-      };
-
-      this.contacts[this.currentIndex].messages.push(currentMsg);
+      this.addMsg(this.currentIndex, this.messageBoxContent, "sent");
+      // Clears the chatbox
       this.messageBoxContent = "";
-
       this.emulateReply(this.currentIndex);
     },
+
+    addMsg(index, text, status) {
+      // Assembling message object
+      let currentMsg = {
+        date: this.getTimestamp(),
+        message: text,
+        status: status,
+      };
+
+      this.contacts[index].messages.push(currentMsg);
+
+      // this.scrollToMsg(this.getLastMsgIndex());
+    },
+
     getTimestamp() {
       const timestamp = dayjs().format("DD/MM/YYYY HH:mm:ss");
       return timestamp;
@@ -42,22 +65,24 @@ const root = new Vue({
 
     receiveMsg(message, index) {
       // Index è l'indice del contatto da cui si riceve il messaggio
-
-      currentMsg = message;
-      currentMsg.date = this.getTimestamp();
-      this.contacts[index].messages.push(currentMsg);
+      const status = "received";
+      const text = message;
+      console.log(
+        `Calling addMsg with parameters ${index}, ${text}, ${status}`
+      );
+      this.addMsg(index, text, status);
     },
 
     emulateReply() {
       // Simula una risposta con 2 secondi di ritardo
-      let currentMsg = {
-        date: "",
-        message: this.getRandomMsg(),
-        status: "received",
-      };
-
-      setTimeout(this.receiveMsg, 2000, currentMsg, this.currentIndex);
+      const indexAtCallTime = this.currentIndex;
+      const text = this.getRandomMsg();
+      console.log(
+        `Calling receiveMsg with parameters ${text} and ${indexAtCallTime}`
+      );
+      setTimeout(this.receiveMsg, 2000, text, indexAtCallTime);
     },
+
     getRandomMsg() {
       let text = "";
       //replies = ["Ok...", "No.", "Maybe", "Yes!", "Yes, but..."];
@@ -92,19 +117,17 @@ const root = new Vue({
     },
 
     getLastReceivedMsg(index) {
-      //! Breaks on deleteMsg() calls
-      const contactsInstance = this.contacts[index].messages;
-      // const receivedMessages = contactsInstance.filter(
-      //   (message) => message.status === "received"
-      // );
+      //! Breaks on deleting the last message received
 
-      let arrayLength = contactsInstance.length;
-      do {
-        arrayLength--;
-      } while (contactsInstance[arrayLength].status != "received");
-
-      return contactsInstance[array].date;
+      const receivedMessages = this.contacts[index].messages.filter(
+        (message) => message.status === "received"
+      );
+      if (receivedMessages.length === 0) {
+        return "";
+      }
+      return receivedMessages[receivedMessages.length - 1].date;
     },
+
     getLastMsg(index) {
       let messages = this.contacts[index].messages;
       let lastMsg = messages[messages.length - 1];
