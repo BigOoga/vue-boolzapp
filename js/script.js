@@ -16,11 +16,6 @@ const root = new Vue({
     theme: "dark",
   },
   methods: {
-    toggleMsgSearch() {
-      this.showSearchMsg = !this.showSearchMsg;
-
-      return;
-    },
     isActive(index) {
       return index === this.currentIndex;
     },
@@ -91,15 +86,24 @@ const root = new Vue({
         }
       });
     },
+
     deleteMsg(index) {
       this.contacts[this.currentIndex].messages.splice(index, 1);
     },
+
     getLastReceivedMsg(index) {
-      // Breaks on deleteMsg() calls
-      const receivedMessages = this.contacts[index].messages.filter(
-        (message) => message.status === "received"
-      );
-      return receivedMessages[receivedMessages.length - 1].date;
+      //! Breaks on deleteMsg() calls
+      const contactsInstance = this.contacts[index].messages;
+      // const receivedMessages = contactsInstance.filter(
+      //   (message) => message.status === "received"
+      // );
+
+      let arrayLength = contactsInstance.length;
+      do {
+        arrayLength--;
+      } while (contactsInstance[arrayLength].status != "received");
+
+      return contactsInstance[array].date;
     },
     getLastMsg(index) {
       let messages = this.contacts[index].messages;
