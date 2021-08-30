@@ -39,6 +39,16 @@ main.dark {
   border-radius: 50%;
 }
 
+.contact .avatar {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+
+#contacts {
+  overflow-x: hidden;
+}
+
 .fas.fa-bell-slash {
   background-color: white;
   border-radius: 50%;
@@ -150,6 +160,10 @@ header.dark {
 
 .right-column {
   position: relative;
+}
+
+.fs-7 {
+  font-size: 0.9rem;
 }
 
 .fs-8 {

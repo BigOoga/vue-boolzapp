@@ -95,15 +95,27 @@
               <div
                 v-for="(contact, index) in contacts"
                 :class="[contact.visible ? 'visible' : 'd-none', {active: isActive(index)}]"
-                class="contact"
+                class="contact row py-1 flex-nowrap"
                 @click="setNewIndex(index)"
               >
-                <img
-                  :src="'./img/avatar' + contact.avatar + '.jpg'"
-                  class="avatar p-2"
-                  alt=""
-                />
-                <span class="fs-5">{{contact.name}}</span>
+                <div class="col-2 ms-1 my-1 d-flex align-items-center">
+                  <img
+                    :src="'./img/avatar' + contact.avatar + '.jpg'"
+                    class="avatar"
+                    alt=""
+                  />
+                </div>
+                <div class="ms-1 col-6 flex-grow-1 m-0">
+                  <div><span class="fs-5">{{contact.name}}</span></div>
+                  <div class="lh-1">
+                    <span class="fs-7">{{ getText(getLastMsg(index)) }}</span>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div>
+                    <span class="fs-8">{{ getDate(getLastMsg(index)) }}</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -117,9 +129,11 @@
                   class="avatar p-2"
                 />
               </div>
-              <div class="col-8 pt-2 flex-grow-1">
+              <div class="col-8 pt-2 flex-grow-1 ps-4">
                 <div class="text">{{contacts[currentIndex].name}}</div>
-                <div class="date fw-light text-muted">Ultimo accesso oggi</div>
+                <div class="date fw-light text-muted">
+                  Ultimo accesso: {{getLastReceivedMsg(currentIndex)}}
+                </div>
               </div>
               <div
                 id="chat-buttons"

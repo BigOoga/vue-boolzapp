@@ -20,9 +20,6 @@ const root = new Vue({
       this.currentIndex = index;
     },
     sendMsg() {
-      // return if empty
-      if (!this.currentMsg) return;
-
       let currentMsg = {
         date: this.getTimestamp(),
         message: this.messageBoxContent,
@@ -96,6 +93,24 @@ const root = new Vue({
     },
     deleteMsg(index) {
       this.contacts[this.currentIndex].messages.splice(index, 1);
+    },
+    getLastReceivedMsg(index) {
+      const receivedMessages = this.contacts[index].messages.filter(
+        (message) => message.status === "received"
+      );
+      return receivedMessages[receivedMessages.length - 1].date;
+    },
+    getLastMsg(index) {
+      let messages = this.contacts[index].messages;
+      let lastMsg = messages[messages.length - 1];
+
+      return lastMsg;
+    },
+    getDate(msg) {
+      return msg.date;
+    },
+    getText(msg) {
+      return msg.message;
     },
   },
 });
